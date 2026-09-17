@@ -1,0 +1,13 @@
+# No third-party dependencies.
+#
+# BidVector runs on the Python standard library alone (3.9+). There is nothing
+# to install: `python3 run.py` is the whole setup.
+#
+# What would normally be a dependency, and where it lives instead:
+#   web framework      -> backend/server.py   (http.server + a small router)
+#   password hashing   -> backend/auth.py     (hashlib.pbkdf2_hmac)
+#   token signing      -> backend/auth.py     (hmac + base64)
+#   database           -> backend/db.py       (sqlite3)
+#   statistics / KDE   -> backend/engine/stats.py
+#   charting           -> frontend/charts.js  (hand-written SVG)
+#   test runner        -> unittest
