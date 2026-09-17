@@ -33,9 +33,11 @@ BANNER = r"""
 
 
 def main():
+    _p = os.environ.get("PORT")
     ap = argparse.ArgumentParser(description="Run TenderKart Mini / BidVector")
-    ap.add_argument("--port", type=int, default=8000)
-    ap.add_argument("--host", default="127.0.0.1")
+    ap.add_argument("--port", type=int,
+                    default=int(_p) if _p and _p.isdigit() else 8000)
+    ap.add_argument("--host", default="0.0.0.0" if _p else "127.0.0.1")
     ap.add_argument("--reseed", action="store_true",
                     help="delete the database and regenerate demo data")
     ap.add_argument("--seed-only", action="store_true")
